@@ -1,0 +1,27 @@
+
+.ad-footer-content {
+  background-image: url("../assets/images/ad-footer-content.png");
+}
+
+
+
+.footer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightslategrey;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.ad-footer-copy {
+  font-size: 4vh;
+  margin-bottom: 50px;
+}
+
+.copy-right {
+  font-size: 2vh;
+}
