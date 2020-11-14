@@ -27,7 +27,7 @@
 }
 
 .servise-title {
-  font-size: 8vh;
+  font-size: 4.7vh;
 }
 
 .service-explain {
@@ -43,17 +43,18 @@
 
 
 .service-details {
-  padding: 5vh, 15vw;
   margin: 10vh;
 }
 
 
 .details-contents {
+  padding-top: 40px;
+  padding-bottom: 30px;
   text-align: center;
   font-size: 3.5vh;
   font-weight: bold;
   margin-bottom: 5vh;
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid green;
 }
 
 .details-content {
@@ -74,12 +75,12 @@
 }
 
 .details-text {
-  font-size: 15px;
+  font-size: 2vh;
   line-height: 50px;
 }
 
 .list-pict {
-  width: 30vh;
+  width: 20vw;
 }
 
 
@@ -99,7 +100,7 @@
 .title {
   font-size: 5vh;
   font-weight: bold;
-  border-bottom: solid 2px black;
+  border-bottom: solid 3px green;
   color: black;
 }
 
