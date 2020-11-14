@@ -1,0 +1,171 @@
+
+ a {
+  text-decoration: none;
+}
+
+.main {
+  background-color: #ffffff;
+}
+
+/* //FOURTH WAVEの特徴 */
+
+.title-contents {
+  width: 100vw;
+  height: 55vh;
+  background-image: image-url("title-header01.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  margin-bottom: 10vh;
+}
+
+.servise-title {
+  font-size: 8vh;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+}
+
+
+/* //FOURTH WAVEの特徴 */
+
+
+/* #fourth waveでできること */
+
+
+.service-details {
+  padding: 5vh, 15vw;
+  margin: 10vh;
+}
+
+
+.details-contents {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  border-bottom: 2px solid black;
+}
+
+.details-content {
+  display: flex;
+}
+
+.details-list {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.detail-title{
+  font-size: 3.5vh;
+  font-weight: bold;
+}
+
+.details-text {
+  font-size: 15px;
+  line-height: 50px;
+}
+
+.list-pict {
+  width: 30vh;
+}
+
+
+/* //#fourth waveでできること */
+
+
+/* idea一覧 */
+
+.idea-contents {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.title {
+  font-size: 5vh;
+  font-weight: bold;
+  border-bottom: solid 2px black;
+  color: black;
+}
+
+
+.idea-lists {
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.idea-lists>.list {
+  width: 60vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw;
+  margin: 20px;
+}
+
+.list a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+}
+
+.idea-info {
+  margin: 10px;
+  position: relative;
+}
+
+.idea-title {
+  font-size: 4vh;
+  margin-bottom: 3px;
+}
+
+.idea-copy {
+  font-size: 3vh;
+}
+
+.idea-format {
+  font-size: 2vh;
+  position: absolute;
+  top: 170px;
+}
+
+.idea-image-content {
+  position: relative;
+}
+
+.item-img {
+  width: 30vh;
+  height: 30vh;
+}
+
+.sold {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  background-color: crimson;
+  transform: skewY(-10deg);
+}
+
+.sold>span {
+  color: #FFF;
+  font-size: 20px;
+  font: bold;
+}
