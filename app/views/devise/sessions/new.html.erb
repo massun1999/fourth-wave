@@ -1,0 +1,44 @@
+<%# 「モデル名」にはUserモデルであれば@userを渡す。 %>
+<%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
+<%# //「モデル名」にはUserモデルであれば@userを渡しす。 %>
+
+<div class="form-wrap">
+  
+</div>
+
+<div class="form-wrap">
+<%= link_to image_tag("fourth-wave-logo.png", class:"fourth-icon"), "/" %>
+  <div class="form-header">
+    <h1 class="form-header-title">
+      Sign Up
+    </h1>
+  </div>
+</div>
+
+  <%# エラーメッセージ%>
+  <%# render 'shared/error_messages', model: f.object %>
+  <%# //エラーメッセージ%>
+
+  <div class="form-group">
+    <div class="form-text-wrap">
+      <label class="form-text">Eメール</label>
+      <span class="indespensable">必須</span>
+    </div>
+    <%= f.email_field :email, class: "input-default", id: "email", placeholder:"Eメールアドレスを入力してください"%>
+  </div>
+  <div class="form-group">
+    <div class="form-text-wrap">
+      <label class="form-text">パスワード</label>
+      <span class="indespensable">必須</span>
+    </div>
+    <%= f.password_field :password, class: "input-default", id: "email", placeholder:"半角英数字8文字以上" %>
+
+  <div class="form-group">
+    <div class="register-btn">
+      <%= f.submit "ログイン", class:"register-green-btn"%>
+    </div>
+    <%= link_to 'TopPageへ戻る', root_path, class:'to-root' %>
+  </div>
+
+
+<% end %>
