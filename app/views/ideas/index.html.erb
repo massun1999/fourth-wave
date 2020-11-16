@@ -54,6 +54,7 @@
 
   <%#商品一覧%>
   <div class='idea-contents'>
+  <%= link_to '新規投稿ページ', new_idea_path %>
     <%= link_to 'New Ideas!', '#', class: 'title' %>
   
     <ul class='idea-lists'>
@@ -62,13 +63,13 @@
           <%= link_to "#" do %>
             <div class='idea-info'>
               <div class='idea-title'><%= idea.title %></div>
-              <div class="idea-copy"><%= idea.copy %></div>
+              <div class="idea-copy"><%= idea.price %>円</div>
               <div class="idea-format"><%= idea.format.name %></div>
               <div class="idea-category"><%= idea.category.name %></div>
             </div>
 
             <div class="idea-image-content">
-              <%= image_tag "item-sample.png", class: "item-img" %>
+              <%= image_tag idea.image, class: "item-img" if idea.image.attached? %>
 
               <%#売れていればsold%>
               <div class="sold">
@@ -85,7 +86,7 @@
           <%= link_to "#" do %>
             <div class='idea-info'>
               <div class='idea-title'><%= "サンプル" %></div>
-              <div class="idea-copy"><%= "アイデアを投稿しよう！" %></div>
+              <div class="idea-copy"><%= "価格" %></div>
               <div class="idea-format"><%= "共同制作" %></div>
               <div class="idea-category"><%= "テクノロジー" %></div>
             </div>
