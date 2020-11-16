@@ -16,6 +16,7 @@
 
 ### Association
 
+- has_one :profile
 - has_many :ideas
 - has_many :orders
 - has_one :addresses
@@ -23,6 +24,19 @@
 - has_many :massages
 - has_many :room_user
 - has_many :rooms, through: room_user
+
+## profilesテーブル
+
+| Column | Type     | Option
+|-------------------|---------
+| job    | string   |
+| hobby  | string   |
+| sex_id | integer  |
+| skill  | string   |
+| area_id| integer  |
+| free   | text     |
+
+- belongs_to :user
 
 
 ## ideasテーブル
@@ -33,6 +47,7 @@
 | text        | string      | null: false                    |
 | category_id | integer     | null: false                    |
 | format_id   | integer     | null: false                    |
+| price       | integer     | null: false                    |
 | user        | references  | null: false,foreign_key: true  |
 
 ### Association
