@@ -2,7 +2,8 @@
   <div class="idea-wrap">
     <%= form_with model:@idea, url:ideas_path, local: true do |form| %>
       <%= form.text_field :title, placeholder: "タイトル"%>
-      <%= form.text_field :copy, placeholder: "キャッチコピー" %>
+      <%= form.file_field :image%>
+      <%= form.text_field :price, placeholder: "価格" %>
       <%= form.text_field :text, placeholder: "アイデアの詳細" %>
       <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
       <%= form.collection_select(:format_id, Format.all, :id, :name, {}, {class:"format-select})"}) %>
