@@ -8,6 +8,8 @@ class User < ApplicationRecord
            validates :nickname
            validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/}
            validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/}
+           validates :first_ruby, format: { with: /\A[ァ-ヶー－]+\z/ }
+           validates :last_ruby, format: { with: /\A[ァ-ヶー－]+\z/ }
            validates :birthday
          end
          validates :email, uniqueness: true
