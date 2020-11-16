@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'ideas/index'
+  resources :ideas, only: [:index, :new, :create]
   root to: "ideas#index"
 end
