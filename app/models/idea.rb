@@ -4,6 +4,8 @@ class Idea < ApplicationRecord
   belongs_to_active_hash :category
   belongs_to_active_hash :format
 
+  belongs_to :user
+
 
   with_options presence: true do
     validates :title
