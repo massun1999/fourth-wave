@@ -57,50 +57,51 @@
     <%= link_to 'New Ideas!', '#', class: 'title' %>
   
     <ul class='idea-lists'>
-
-    <%#eachメソッド%>
-      <li class='list'>
-        <%= link_to "#" do %>
-          <div class='idea-info'>
-            <div class='idea-title'><%= "タイトル" %></div>
-            <div class="idea-copy"><%= "キャッチコピー" %></div>
-            <div class="idea-format"><%= "共同制作" %></div>
-          </div>
-
-          <div class="idea-image-content">
-            <%= image_tag "item-sample.png", class: "item-img" %>
-
-            <%#売れていればsold%>
-            <div class="sold">
-              <span>finish!!</span>
+      <%= @ideas.each do |idea| %>
+        <li class='list'>
+          <%= link_to "#" do %>
+            <div class='idea-info'>
+              <div class='idea-title'><%= idea.title %></div>
+              <div class="idea-copy"><%= idea.copy %></div>
+              <div class="idea-format"><%= idea.format_id.name %></div>
+              <div class="idea-category"><%= idea.category_id.name %></div>
             </div>
-            <%# //売れていればsold%>
 
-          </div>
-        <% end %>
-      </li>
+            <div class="idea-image-content">
+              <%= image_tag "item-sample.png", class: "item-img" %>
 
-        <%#eachメソッド%>
-      <li class='list'>
-        <%= link_to "#" do %>
-          <div class='idea-info'>
-            <div class='idea-title'><%= "タイトル" %></div>
-            <div class="idea-copy"><%= "キャッチコピー" %></div>
-            <div class="idea-format"><%= "共同制作" %></div>
-          </div>
+              <%#売れていればsold%>
+              <div class="sold">
+                <span>finish!!</span>
+              </div>
+              <%# //売れていればsold%>
 
-          <div class="idea-image-content">
-            <%= image_tag "item-sample.png", class: "item-img" %>
-
-            <%#売れていればsold%>
-            <div class="sold">
-              <span>finish!!</span>
             </div>
-            <%# //売れていればsold%>
-          
-          </div>
-        <% end %>
-      </li>
+          <% end %>
+        </li>
+      <% end %>
+
+        <li class='list'>
+          <%= link_to "#" do %>
+            <div class='idea-info'>
+              <div class='idea-title'><%= "サンプル" %></div>
+              <div class="idea-copy"><%= "アイデアを投稿しよう！" %></div>
+              <div class="idea-format"><%= "共同制作" %></div>
+              <div class="idea-category"><%= "テクノロジー" %></div>
+            </div>
+
+            <div class="idea-image-content">
+              <%= image_tag "item-sample.png", class: "item-img" %>
+
+              <%#売れていればsold%>
+              <div class="sold">
+                <span>finish!!</span>
+              </div>
+              <%# //売れていればsold%>
+
+            </div>
+          <% end %>
+        </li>
     </ul>
 
   
