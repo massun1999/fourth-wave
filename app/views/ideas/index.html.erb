@@ -57,14 +57,14 @@
     <%= link_to 'New Ideas!', '#', class: 'title' %>
   
     <ul class='idea-lists'>
-      <%= @ideas.each do |idea| %>
+      <% @ideas.each do |idea| %>
         <li class='list'>
           <%= link_to "#" do %>
             <div class='idea-info'>
               <div class='idea-title'><%= idea.title %></div>
               <div class="idea-copy"><%= idea.copy %></div>
-              <div class="idea-format"><%= idea.format_id.name %></div>
-              <div class="idea-category"><%= idea.category_id.name %></div>
+              <div class="idea-format"><%= idea.format.name %></div>
+              <div class="idea-category"><%= idea.category.name %></div>
             </div>
 
             <div class="idea-image-content">
