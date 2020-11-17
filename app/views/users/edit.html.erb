@@ -1,0 +1,61 @@
+<%# CSSは 'profile/show.css' であとで編集する%>
+
+  <%= form_with model: @user, url: user_path, class:'registration-main',local: true do |f| %>
+
+    <div class="form-wrap">
+      <%= link_to image_tag("fourth-wave-logo.png", class:"fourth-icon"), "/" %>
+      <div class="form-header">
+      <h1 class="form-header-title">
+        プロフィール編集
+      </h1>
+    </div>
+    </div>
+    
+    
+    <div class="profile-form">
+      <div class="profile-form-group">
+        <p class="profile-edit-info">ニックネーム</p>
+        <%= f.text_area :nickname, class: 'profile-info'%>
+      </div>
+
+      <div class="profile-form-group">
+        <p class="profile-edit-info">Eメール</p>
+        <%= f.text_area :email, class: 'profile-info'%>
+      </div>
+
+      <div class="profile-form-group">
+        <p class="profile-edit-info">職業</p>
+        <%= f.text_area :job, class: 'profile-info'%>
+      </div>
+
+      <div class="profile-form-group">
+        <p class="profile-edit-info">趣味</p>
+        <%= f.text_area :hobby, class: 'profile-info'%>
+      </div>
+
+      <div class="profile-form-group">
+        <p class="profile-edit-info">性別</p>
+        <%= f.text_area :sex_id, class: 'profile-info'%>
+      </div>
+
+      <div class="profile-form-group">
+        <p class="profile-edit-info">所有スキル</p>
+        <%= f.text_area :skill, class: 'profile-info'%>
+      </div>
+
+      <div class="profile-form-group">
+        <p class="profile-edit-info">居住エリア</p>
+        <%= f.text_area :area_id, class: 'profile-info'%>
+      </div>
+
+      <div class="profile-form-group">
+        <p class="profile-edit-info">自己紹介</p>
+        <%= f.text_area :free, class: 'profile-info'%>
+      </div>
+
+      <%= f.submit '変更する', class:'profile-info'%>
+      <%= link_to '戻る', root_path, class:'profile-info' %>
+    </div>
+  <% end %>
+
+</div>
