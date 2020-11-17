@@ -1,0 +1,27 @@
+<h1>購入内容の確認</h1>
+<div class='order-info'> 
+  <p><%= @idea.title %>
+  <p><%= @idea.price %>円</p>
+</div>
+
+
+<%= form_with model: @order,url: idea_orders_path, id: 'charge-form', class: 'charge-form', local:true do |f| %>
+  <div class='form-wrap'>
+    <%= f.label :number, "カード番号" %>
+    <%= f.text_field :number, class:"number", placeholder:"カード番号（半角英数字)", maxlength:"16" %>
+  </div>
+  <div class='form-wrap'>
+    <%= f.label :cvc, "CVC" %>
+    <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"16" %>
+  </div>
+  <div class='form-wrap'>
+    <p>有効期限</p>
+    <div class="input-ex-date-wrap">
+      <%= f.text_field :exp_month, class:"exp_month", placeholder:"例）3"%>
+      <p>月</p>
+      <%= f.text_field :exp_year, class:"exp_year",placeholder:"例）24"%>
+      <p>年</p>
+    </div>
+  </div>
+  <%= f.submit "購入", class:'button' %>
+<% end %>

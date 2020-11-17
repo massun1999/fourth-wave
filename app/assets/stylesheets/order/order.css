@@ -1,0 +1,9 @@
+.order-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-wrap {
+  display: flex;
+  flex-direction: column;
+}
