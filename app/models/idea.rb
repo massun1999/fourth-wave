@@ -4,9 +4,9 @@ class Idea < ApplicationRecord
   belongs_to_active_hash :category
   belongs_to_active_hash :format
 
-  belongs_to :user
-  has_one_attached :image
-  has_many :orders
+  belongs_to :user, dependent: :destroy
+  has_one_attached :image, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
 
   with_options presence: true do

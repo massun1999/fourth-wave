@@ -16,7 +16,7 @@ class User < ApplicationRecord
          PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
          validates :password, format: { with: PASSWORD_REGEX },on: :registration, on: :session
 
-         has_many :ideas
+         has_many :ideas, dependent: :destroy
          has_many :orders
          has_one :profile, dependent: :destroy
          accepts_nested_attributes_for :profile
