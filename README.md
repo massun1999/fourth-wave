@@ -27,14 +27,14 @@
 
 ## profilesテーブル
 
-| Column | Type     | Option
-|-------------------|---------
-| job    | string   |
-| hobby  | string   |
-| sex_id | integer  |
-| skill  | string   |
-| area_id| integer  |
-| free   | text     |
+| Column | Type     | Option  |
+|-------------------|---------|
+| job    | string   |         |
+| hobby  | string   |         |
+| sex_id | integer  |         |
+| skill  | string   |         |
+| area_id| integer  |         |
+| free   | text     |         |
 
 - belongs_to :user
 

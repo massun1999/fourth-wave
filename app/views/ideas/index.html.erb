@@ -4,50 +4,16 @@
   <% unless user_signed_in? %>
     <%#画面上部のfourth wave帯部分%>
     <div class='title-contents'>
-      <h2 class="servise-title">あなたのアイデアが世界を変える</h2>
+      <h2 class="servise-title">FOURTH WAVE</h2>
       <p class="service-explain">
-      アイデアに人が集まり、実現させる
+      new brew method
       </p>
       <p class="sevice-explain">
-      FOURTH WAVEはあなたのアイデアを形にします。
+      new coffee life
       </p>
     </div>
     <%# //画面上部のfourth wave帯部分%>
 
-    <%#fourth waveでできること%>
-    <div class='service-details'>
-      <h2 class="details-contents">FOURTH WAVEでできること</h2>
-      <ul class="details-content">
-        <li class="details-list">
-          <%= image_tag "details01.png", class:"list-pict" %>
-          <h2 class="detail-title">
-          アイデアを発信！！
-          </h2>
-          <p class="details-text">
-          あなたの革新的なアイデアを自由に発信できる場所です！
-          </p>
-        </li>
-              <li class="details-list">
-          <%= image_tag "details02.png", class:"list-pict" %>
-          <h2 class="detail-title">
-          アイデアを売却できる
-          </h2>
-          <p class="details-text">
-          魅力的なあなたのアイデアを売却できます！
-          </p>
-        </li>
-        <li class="details-list">
-          <%= image_tag "details03.png", class:"list-pict"%>
-          <h2 class="detail-title">
-          アイデアを一緒に実現
-          </h2>
-          <p class="details-text">
-          仲間を見つけて一緒にアイデアを実現できます！
-          </p>
-        </li>
-      </ul>
-    </div>
-    <%# //fourth waveでできること%>
   <% end %>
 
 
@@ -55,53 +21,25 @@
   <%#商品一覧%>
   <div class='idea-contents'>
   <%= link_to '新規投稿ページ', new_idea_path %>
-    <%= link_to 'New Ideas!', '#', class: 'title' %>
   
     <ul class='idea-lists'>
       <% @ideas.each do |idea| %>
         <li class='list'>
           <%= link_to(idea_path(idea.id)) do %>
+          <div class="idea-image-content">
+              <%= image_tag idea.image, class: "item-img" if idea.image.attached? %>
+            </div>
             <div class='idea-info'>
               <div class='idea-title'><%= idea.title %></div>
-              <div class="idea-copy"><%= idea.price %>円</div>
               <div class="idea-format"><%= idea.format.name %></div>
               <div class="idea-category"><%= idea.category.name %></div>
             </div>
 
-            <div class="idea-image-content">
-              <%= image_tag idea.image, class: "item-img" if idea.image.attached? %>
-
-              <%#売れていればsold%>
-              <div class="sold">
-                <span>finish!!</span>
-              </div>
-              <%# //売れていればsold%>
-
-            </div>
+            
           <% end %>
         </li>
       <% end %>
 
-        <li class='list'>
-          <%= link_to '#' do %>
-            <div class='idea-info'>
-              <div class='idea-title'><%= "サンプル" %></div>
-              <div class="idea-copy"><%= "価格" %></div>
-              <div class="idea-format"><%= "共同制作" %></div>
-              <div class="idea-category"><%= "テクノロジー" %></div>
-            </div>
-
-            <div class="idea-image-content">
-              <%= image_tag "item-sample.png", class: "item-img" %>
-
-              <%#売れていればsold%>
-              <div class="sold">
-                <span>finish!!</span>
-              </div>
-              <%# //売れていればsold%>
-
-            </div>
-          <% end %>
         </li>
     </ul>
 
