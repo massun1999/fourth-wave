@@ -6,6 +6,6 @@ class Order < ApplicationRecord
   end
 
   belongs_to :user
-  belongs_to :idea, dependent: :destroy
+  belongs_to :idea
 
 end
