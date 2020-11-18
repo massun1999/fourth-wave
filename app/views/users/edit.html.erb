@@ -1,0 +1,35 @@
+<%# CSSは 'profile/show.css' であとで編集する%>
+
+  <%= form_with model: @user,url: user_path, class:'registration-main',local: true do |f| %>
+
+
+    <div class="form-wrap">
+      <%= link_to image_tag("fourth-wave-logo.png", class:"fourth-icon"), "/" %>
+      <div class="form-header">
+        <h1 class="form-header-title">
+          プロフィール編集
+        </h1>
+      </div>
+    </div>
+      <%= render 'shared/error_orders', model: current_user %>
+    
+    
+    <div class="profile-form">
+      <div class="profile-form-group">
+        <p class="profile-edit-info">ニックネーム</p>
+        <%= f.label :nickname %><br />
+        <%= f.text_area :nickname, class: 'profile-info'%>
+      </div>
+
+      <div class="profile-form-group">
+        <p class="profile-edit-info">Eメール</p>
+        <%= f.label :email%><br />
+        <%= f.text_area :email, class: 'profile-info'%>
+      </div>
+
+      <%= f.submit '変更する', class:'profile-info'%>
+        <%= link_to '戻る', root_path, class:'profile-info' %>
+    </div>
+  <% end %>
+
+</div>
