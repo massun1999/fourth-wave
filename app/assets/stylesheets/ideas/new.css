@@ -1,0 +1,59 @@
+.idea-post {
+  width: 100vw;
+  height: auto;
+  min-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.idea-wrap {
+  width: 60vw;
+  background-color: white;
+  padding: 60px;
+}
+
+.new-top-content {
+  display: flex;
+  justify-content: space-around;
+}
+.new-form-group {
+  width: 50vw;
+  margin-bottom: 60px;
+}
+
+
+
+.idea-field {
+  width: 300px;
+  border: none;
+  border-bottom: solid 1px black;
+}
+
+.idea-fieldtext {
+  width: 40vw;
+  height: 40vh;
+  border-radius:  20px 40px 20px 40px;
+  border: solid 1px;
+}
+
+.category-select {
+  width: 150px;
+}
+
+.format-select {
+  width: 150px;
+}
+
+.new-btn {
+  color:#f5f5f5;
+  background-color:limegreen;
+  padding: 10px;
+  border: none;
+  border-radius:  20px 40px 20px 40px;
+  margin-bottom: 40px;
+}

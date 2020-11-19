@@ -1,6 +1,7 @@
 <%= render "shared/header" %>
 
 <div class="main">
+    
   <% unless user_signed_in? %>
     <%#画面上部のfourth wave帯部分%>
     <div class='title-contents'>
@@ -20,32 +21,31 @@
 
   <%#商品一覧%>
   <div class='idea-contents'>
-  <%= link_to '新規投稿ページ', new_idea_path %>
+
   
     <ul class='idea-lists'>
       <% @ideas.each do |idea| %>
         <li class='list'>
-          <%= link_to(idea_path(idea.id)) do %>
-          <div class="idea-image-content">
-              <%= image_tag idea.image, class: "item-img" if idea.image.attached? %>
-            </div>
-            <div class='idea-info'>
-              <div class='idea-title'><%= idea.title %></div>
-              <div class="idea-format"><%= idea.format.name %></div>
-              <div class="idea-category"><%= idea.category.name %></div>
-            </div>
-
-            
-          <% end %>
+          <div class='list-content'>
+            <div class="idea-user"><%= link_to idea.user.nickname, '#' %></div>
+            <%= link_to(idea_path(idea.id)) do %>
+              <div class="idea-image-content">
+                <%= image_tag idea.image, class: "item-img" if idea.image.attached? %>
+              </div>
+              <div class="idea-title"><%= idea.title %></div>
+              <div class="idea-category"><%= idea.category.name%></div>
+            <% end %>
+          </div>
         </li>
       <% end %>
-
-        </li>
     </ul>
+
+    <%= link_to image_tag("new.png", :size => '100x100'), new_idea_path,class:'new-idea-link' %>
 
   
   </div>
+  <%= render "shared/footer"%>
 </div>
 
-<%= render "shared/footer"%>
+
 
