@@ -12,7 +12,6 @@ class Idea < ApplicationRecord
   with_options presence: true do
     validates :title, length: { maximum: 40}
     validates :text
-    validates :price, numericality: { greater_than: 0, less_than_or_equal_to: 1000000 }
     validates :image
   end
 
