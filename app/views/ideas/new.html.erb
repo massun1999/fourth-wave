@@ -1,13 +1,39 @@
 <div class="idea-post">
   <div class="idea-wrap">
-    <%= form_with model:@idea, url:ideas_path, local: true do |form| %>
-      <%= form.text_field :title, placeholder: "タイトル"%>
-      <%= form.file_field :image%>
-      <%= form.text_field :price, placeholder: "価格" %>
-      <%= form.text_field :text, placeholder: "アイデアの詳細" %>
-      <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
-      <%= form.collection_select(:format_id, Format.all, :id, :name, {}, {class:"format-select})"}) %>
-      <%= form.submit '投稿する' , class: "btn"%>
+    <%= form_with model:@idea, url:ideas_path, local: true do |f| %>
+      
+      <div class="new-top-content">
+        <div class="new-form-group">
+         <%= f.label :title%><br />
+         <%= f.text_field :title, placeholder: "タイトル", class: "idea-field" %>
+        </div>
+  
+        <div class="new-form-group">
+         <%= f.label :image %><br />
+         <%= f.file_field :image%>
+        </div>
+      </div>
+
+
+      <div class="new-form-group">
+        <%= f.label :text%><br />
+        <%= f.text_field :text, placeholder: "キャプション" , class: "idea-fieldtext" %>
+      </div>
+
+      <div class="new-form-group">
+        <%= f.label :category_id %><br />
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+      </div>
+
+      <div class="new-form-group">
+        <%=f.label :format_id %><br />
+        <%= f.collection_select(:format_id, Format.all, :id, :name, {}, {class:"format-select"}) %>
+      </div>
+
+
+      <%= f.submit 'POST' , class: "new-btn"%>
     <% end %>
+
+    <%= link_to 'トップページ', root_path, class:"new-root" %>
   </div>
 </div>
