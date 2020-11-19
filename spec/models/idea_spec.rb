@@ -23,41 +23,6 @@ RSpec.describe Idea, type: :model do
         @idea.valid?
         expect(@idea.errors.full_messages).to include("Text can't be blank")
       end
-      it "priceがからのとき" do
-        @idea.price = ""
-        @idea.valid?
-        expect(@idea.errors.full_messages)
-      end
-      it "priceに全角漢字が含まれているとき" do
-        @idea.price = "10000円"
-        @idea.valid?
-        expect(@idea.errors.full_messages).to include("Price is not a number")
-      end
-      it "priceに全角かなが含まれているとき" do
-        @idea.price = "1000えん"
-        @idea.valid?
-        expect(@idea.errors.full_messages).to include("Price is not a number")
-      end
-      it "priceに全角カナが含まれているとき" do
-        @idea.price = "1000エン"
-        @idea.valid?
-        expect(@idea.errors.full_messages).to include("Price is not a number")
-      end
-      it "priceに記号が含まれているとき" do
-        @idea.price = "¥10000"
-        @idea.valid?
-        expect(@idea.errors.full_messages).to include("Price is not a number")
-      end
-      it "priceが0以下のとき" do
-        @idea.price = 0
-        @idea.valid?
-        expect(@idea.errors.full_messages).to include("Price must be greater than 0")
-      end
-      it "priceが1000000より大きいとき" do
-        @idea.price = 1000001
-        @idea.valid?
-        expect(@idea.errors.full_messages).to include("Price must be less than or equal to 1000000")
-      end
       it "imageがからのとき" do
         @idea.image = nil
         @idea.valid?
