@@ -2,7 +2,6 @@
 <%= @idea.text %>
 <%= @idea.category.name %>
 <%= @idea.format.name %>
-<%= @idea.price %>
 <%= link_to @idea.user.nickname, user_path(@idea.user.id) %>
 
 <%= link_to '購入する', idea_orders_path(@idea) %>
