@@ -116,6 +116,41 @@
   background-color: red;
 }
 
+.container {
+  margin: 30px;
+}
+
+.comment-title {
+  margin-bottom: 30px;
+}
+
+.comment-form {
+  width: 100%;
+  height: 30px;
+  margin: 0 auto;
+  padding: 2px;
+}
+
+.comment-btn {
+  padding: 2px;
+  border: none;
+}
+
+.comments {
+  margin: 50px
+}
+
+.comment-content {
+  margin: 0 auto;
+}
+
+.comment-user {
+  font-weight: bold;
+}
+
+
+
+
 .show-to-root {
   margin-top: 40px;
   border-bottom: solid 2px lightgray;

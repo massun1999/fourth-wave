@@ -34,6 +34,35 @@
       </div>
     </div>
 
+    <div class="container">
+      <div class="comments">
+        <h4 class="comment-title">＜commnts＞</h4>
+        <% if @comments %>
+          <% @comments.each do |comment| %>
+            <p class='comment-content'>
+              <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>：</strong>
+              <%= comment.text %><p>
+              <% if (user_signed_in? && current_user.id == comment.user_id) || (user_signed_in? && comment.idea_id == @idea.id) %>
+                <%= link_to '削除する', idea_comment_path(comment.idea.id, comment.id), method: :delete, class:'comment-delete'%>
+              <% end %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%= render 'shared/error_orders', model: @comment, class:'error' %>
+
+      <% if user_signed_in? %>
+        <%= form_with(model: [@idea, @comment], local: true) do |form| %>
+          <%= form.text_area :text, placeholder: "コメントする", rows: "2" , class:'comment-form'%>
+          <%= form.submit "SEND" , class:'comment-btn'%>
+        <% end %>
+      <% else %>
+        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      <% end %>
+      
+    </div>
+
     <div class="show-btns">
 
     <% if user_signed_in? && current_user.id != @idea.user_id %>
