@@ -21,4 +21,12 @@ class Idea < ApplicationRecord
     validates :format_id
   end
 
+  def self.search(search)
+    if search != ""
+      Idea.where('title LIKE(?)', "%#{search}%" ).where('text LIKE(?)',"%#{search}%" )
+    else
+      Idea.all
+    end
+  end
+
 end

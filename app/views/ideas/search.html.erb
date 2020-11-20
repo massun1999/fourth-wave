@@ -1,0 +1,51 @@
+<%= render "shared/header" %>
+
+<div class="main">
+    
+  <% unless user_signed_in? %>
+    <%#画面上部のfourth wave帯部分%>
+    <div class='title-contents'>
+      <h2 class="servise-title">FOURTH WAVE</h2>
+      <p class="service-explain">
+      new brew method
+      </p>
+      <p class="sevice-explain">
+      new coffee life
+      </p>
+    </div>
+    <%# //画面上部のfourth wave帯部分%>
+
+  <% end %>
+
+
+
+  <%#商品一覧%>
+  <div class='idea-contents'>
+
+  
+    <ul class='idea-lists'>
+      <% @ideas.each do |idea| %>
+        <li class='list'>
+          <div class='list-content'>
+            <div class="idea-user"><%= link_to idea.user.nickname, '#' %></div>
+            <%= link_to(idea_path(idea.id)) do %>
+              <div class="idea-image-content">
+                <%= image_tag idea.image, class: "item-img" if idea.image.attached? %>
+              </div>
+              <div class="idea-title"><%= idea.title %></div>
+              <div class="idea-category"><%= idea.category.name%></div>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="new-link-wrap">
+      <%= link_to image_tag("new04.png", :size => '70x70'), new_idea_path,class:'new-idea-link' %>
+    </div>
+  
+  </div>
+  <%= render "shared/footer"%>
+</div>
+
+
+
