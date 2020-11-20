@@ -19,5 +19,6 @@ class User < ApplicationRecord
          has_many :ideas, dependent: :destroy
          has_many :orders
          has_one :profile, dependent: :destroy
+         has_many :comments
          accepts_nested_attributes_for :profile
 end

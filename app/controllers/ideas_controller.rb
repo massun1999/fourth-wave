@@ -5,7 +5,7 @@ class IdeasController < ApplicationController
   
   
   def index
-    @ideas = Idea.all.order("created_at DESC")
+    @ideas = Idea.all.order("created_at DESC").includes(:user)
   end
 
   def new
@@ -33,6 +33,8 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @idea.comments.includes(:user)
   end
 
   def destroy
