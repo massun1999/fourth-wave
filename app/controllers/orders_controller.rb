@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  before_action :move_to_root, only: [:index]
 
   def index
     @idea = Idea.find(params[:idea_id])
@@ -18,6 +20,13 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def move_to_root
+    @idea = Idea.find(params[:idea_id])
+    if current_user.id == @idea.user_id
+      redirect_to root_path
+    end
+  end
 
   def order_params
     params.require(:order).permit(:user_id, :idea_id, :price).merge(user_id: current_user.id, idea_id: params[:idea_id], token: params[:token])
