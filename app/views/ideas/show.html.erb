@@ -1,12 +1,64 @@
-<%= @idea.title %>
-<%= @idea.text %>
-<%= @idea.category.name %>
-<%= @idea.format.name %>
-<%= link_to @idea.user.nickname, user_path(@idea.user.id) %>
+<div class="show-main">
 
-<%= link_to '購入する', idea_orders_path(@idea) %>
+  <header class="show-header">
+    <%= link_to '←', :back, class: "back-page-btn"%>
+    <div class="show-header-content">
+      <div class="header-user-name">
+        <%= link_to @idea.user.nickname, user_path(@idea.user.id) %>
+      </div>
+        <h1 class="show-title">詳細</h1>
+    </div>
+  </header>
 
-<%= link_to '削除する', idea_path(@idea), method: :delete %>
 
-<%= link_to 'TopPage', root_path%>
+  <div class="content-detail">
+
+    <%= image_tag @idea.image, class: "show-item-img" %>
+
+    <div class="idea-show-title">
+      <%= @idea.title %>
+    </div>
+
+    <div class="idea-show-text">
+      <%= @idea.text %>
+    </div>
+
+
+    <div class="idea-show-info-wrap">
+      <div class="idea-show-info">
+        <%= @idea.category.name %>
+      </div>
+
+      <div class="idea-show-info">
+        <%= @idea.format.name %>
+      </div>
+    </div>
+
+    <div class="show-btns">
+
+      <%= link_to '投げ銭', idea_orders_path(@idea), class: 'idea-order-btn'%>
+  
+      <%= link_to '削除する', idea_path(@idea), method: :delete, class: 'idea-delete-btn' %>
+  
+      <%= link_to 'TopPageへ戻る', root_path, class:'show-to-root'%>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

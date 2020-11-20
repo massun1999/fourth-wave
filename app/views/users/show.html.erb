@@ -1,86 +1,37 @@
 <%= render "shared/header" %>
 
 <div class='profile-main'>
-  <h1 class='mypage-title'>My Page</h1>
 
-  <h2 class='profile-title'>profile</h2>
+  <h1 class='mypage-title'>Profile</h1>
+
 
   <div class='profile-wrap'>
-    <h2 class='profile-info-title'>
-      ユーザー名
-    </h2>
-      <p class="profile-info">
-        <%= @user.nickname %>
-      </p>
+    <p class="profile-name">
+      <%= @user.nickname %>
+    </p>
   </div>
 
-  <div class='profile-wrap'>
-    <h2 class='profile-info-title'>
-      職業
-    </h2>
-      <p class="profile-info">
-        <%= "Webエンジニア" %>
-      </p>
-  </div>
-
-  <div class='profile-wrap'>
-    <h2 class='profile-info-title'>
-      趣味
-    </h2>
-      <p class="profile-info">
-        <%= "カフェ巡り" %>
-      </p>
-  </div>
-
-  <div class='profile-wrap'>
-    <h2 class='profile-info-title'>
-      性別
-    </h2>
-      <p class="profile-info">
-        <%= "男" %>
-      </p>
-  </div>
-
-  <div class='profile-wrap'>
-    <h2 class='profile-info-title'>
-      所有スキル
-    </h2>
-      <p class="profile-info">
-        <%= "Ruby,Javascript" %>
-      </p>
-  </div>
-
-  <div class='profile-wrap'>
-    <h2 class='profile-info-title'>
-      居住エリア
-    </h2>
-      <p class="profile-info">
-        <%= "三重県" %>
-      </p>
-  </div>
-
-  <div class='profile-wrap'>
-    <h2 class='profile-info-title'>
-      自己PR
-    </h2>
+  <div class='profile-wrap-info'>
       <p class="profile-info">
         <%= "駆け出しエンジニアです" %>
       </p>
   </div>
+
+  
 
 
 
   <%= link_to 'profileを編集する', edit_user_path(@user) %>
 
 
+</div>
 
-  <div class="contents row">
-    <p><%= @user.nickname %>さんの投稿一覧</p>
-    <% @ideas.each do |idea| %>
-      <div class="content_post">
-        <p><%= idea.text %></p>
-        <span class="name"><%= idea.title %></span>
-      </div>
-    <% end %>
-  </div>
+<div class="users-content">
+  <% @ideas.each do |idea| %>
+    <div class="content_post" >
+      <%= link_to(idea_path(idea.id)) do %>
+        <%= image_tag idea.image, class:'idea-item-img'%>
+      <% end %>
+    </div>
+  <% end %>
 </div>
