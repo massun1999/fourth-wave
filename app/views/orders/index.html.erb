@@ -1,33 +1,47 @@
-<%= render 'shared/error_orders', model: @order %>
-
-<h1>購入内容の確認</h1>
-<div class='order-info'> 
-  <p><%= @idea.title %>
-</div>
 
 
-<%= form_with model: @order,url: idea_orders_path, id: 'charge-form', class: 'charge-form', local:true do |f| %>
+<div class="order-main">
+  <div class="order-wrap">
 
-  <div class="form-wrap">
-    <%= f.label :price %><br />
-    <%= f.text_field :price, class:"price", placeholder:"価格" %>
-  </div>
-  <div class='form-wrap'>
-    <%= f.label :number, "カード番号" %>
-    <%= f.text_field :number, class:"number", placeholder:"カード番号（半角英数字)", maxlength:"16" %>
-  </div>
-  <div class='form-wrap'>
-    <%= f.label :cvc, "CVC" %>
-    <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"16" %>
-  </div>
-  <div class='form-wrap'>
-    <p>有効期限</p>
-    <div class="input-ex-date-wrap">
-      <%= f.text_field :exp_month, class:"exp_month", placeholder:"例）3"%>
-      <p>月</p>
-      <%= f.text_field :exp_year, class:"exp_year",placeholder:"例）24"%>
-      <p>年</p>
+    <%= link_to '←', :back, class: "order-back-page-btn"%>
+    <h1 class="order-title">
+      購入内容の確認
+    </h1>
+  
+    <div class='order-info'> 
+      <%= image_tag @idea.image, class: "show-item-img" %>
+      <p class="order-content"><%= @idea.title %></p>
     </div>
+
+    <%= render 'shared/error_orders', model: @order %>
+    
+    
+    <%= form_with model: @order,url: idea_orders_path, id: 'charge-form', class: 'charge-form', local:true do |f| %>
+    
+      <div class="form-order-wrap">
+        <%= f.label :price %><br />
+        <%= f.text_field :price, class:"price", placeholder:"価格(￥100〜）" %>
+      </div>
+      <div class='form-order-wrap'>
+        <%= f.label :number, "カード番号" %><br />
+        <%= f.text_field :number, class:"number", placeholder:"カード番号（半角英数字)", maxlength:"16" %>
+      </div>
+      <div class='form-order-wrap'>
+        <%= f.label :cvc, "CVC" %><br />
+        <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"16" %>
+      </div>
+      <div class='form-order-wrap'>
+        <p>有効期限</p>
+        <div class="input-ex-date-wrap">
+          <%= f.text_field :exp_month, class:"exp_month", placeholder:"例）3"%>
+          <p>月</p>
+          <%= f.text_field :exp_year, class:"exp_year",placeholder:"例）24"%>
+          <p>年</p>
+        </div>
+      </div>
+      <%= f.submit "購入", class:'order-button' %>
+    <% end %>
   </div>
-  <%= f.submit "購入", class:'button' %>
-<% end %>
+
+
+</div>

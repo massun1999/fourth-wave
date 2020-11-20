@@ -1,11 +1,18 @@
 <div class="idea-post">
+
+
   <div class="idea-wrap">
     <%= form_with model:@idea, url:ideas_path, local: true do |f| %>
-      
+
+    <div class="idea-new-logo">
+      <%= link_to image_tag("fourth-wave-logo.png", :size => '200x60'), "/" %>
+    </div>
       <div class="new-top-content">
         <div class="new-form-group">
-         <%= f.label :title%><br />
-         <%= f.text_field :title, placeholder: "タイトル", class: "idea-field" %>
+          <div class="new-form-title">
+             <%= f.label :title%><br />
+             <%= f.text_field :title, placeholder: "タイトル", class: "idea-field" %>
+          </div>
         </div>
   
         <div class="new-form-group">
