@@ -36,9 +36,13 @@
 
     <div class="show-btns">
 
+    <% if user_signed_in? && current_user.id != @idea.user_id %>
       <%= link_to '投げ銭', idea_orders_path(@idea), class: 'idea-order-btn'%>
-  
+    <% end %>
+    
+    <% if user_signed_in? && current_user.id == @idea.user_id %>
       <%= link_to '削除する', idea_path(@idea), method: :delete, class: 'idea-delete-btn' %>
+    <% end %>
   
       <%= link_to 'TopPageへ戻る', root_path, class:'show-to-root'%>
     </div>
