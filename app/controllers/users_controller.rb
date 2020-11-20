@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if current_user.id != @user
+    if current_user.id != @user.id
       redirect_to action: :show
     end
   end
