@@ -2,14 +2,16 @@
 
 
   <div class="idea-wrap">
-    <%= form_with model:@idea, url:ideas_path, local: true do |f| %>
+    <%= form_with model:@idea, url:idea_path, local: true do |f| %>
+
 
     <div class="idea-new-logo">
       <%= link_to image_tag("fourth-wave-logo.png", :size => '200x60'), "/" %>
     </div>
 
-      <%= render 'shared/error_orders', model: @idea, class:'error' %>
 
+    <%= render 'shared/error_orders', model: @idea %>
+    
       <div class="new-top-content">
         <div class="new-form-group">
           <div class="new-form-title">

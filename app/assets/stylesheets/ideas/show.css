@@ -99,6 +99,15 @@
   background-color: limegreen;
 }
 
+.idea-edit-btn {
+  width: 150px;
+  height: 50px;
+  padding: 15px;
+  margin-bottom: 30px;
+  color: white;
+  background-color: green;
+}
+
 .idea-delete-btn {
   width: 150px;
   height: 50px;
