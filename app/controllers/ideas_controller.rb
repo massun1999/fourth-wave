@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_action :authenticate_user!, only: :new
-  before_action :set_idea, only: [:show, :destroy]
+  before_action :set_idea, only: [ :edit, :update, :show, :destroy]
+  before_action :move_to_root, only: [ :edit ]
   
   
   def index
@@ -20,6 +21,17 @@ class IdeasController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @idea.update(idea_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
+  end
+
   def show
   end
 
@@ -34,6 +46,13 @@ class IdeasController < ApplicationController
   end
 
   private
+
+  def move_to_root
+    @idea = Idea.find(params[:id])
+    if current_user.id != @idea.user_id
+      redirect_to root_path
+    end
+  end
 
   def idea_params
     params.require(:idea).permit(:title, :text, :category_id, :format_id, :user_id, :image).merge(user_id: current_user.id)
