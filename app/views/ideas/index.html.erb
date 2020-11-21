@@ -27,12 +27,15 @@
       <% @ideas.each do |idea| %>
         <li class='list'>
           <div class='list-content'>
-            <div class="idea-user"><%= link_to idea.user.nickname, '#' %></div>
+            <div class='list-top-content'>
+              <div class="idea-user"><%= link_to idea.user.nickname, user_path(idea.user_id) %></div>
+              <div class="idea-title"><%= idea.title %></div>
+            </div>
             <%= link_to(idea_path(idea.id)) do %>
               <div class="idea-image-content">
                 <%= image_tag idea.image, class: "item-img" if idea.image.attached? %>
               </div>
-              <div class="idea-title"><%= idea.title %></div>
+              <div class="idea-text"><%= strip_tags(idea.text).truncate(10) %></div>
               <div class="idea-category"><%= idea.category.name%></div>
             <% end %>
           </div>

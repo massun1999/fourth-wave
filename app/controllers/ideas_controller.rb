@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   before_action :authenticate_user!, only: :new
   before_action :set_idea, only: [ :edit, :update, :show, :destroy]
-  before_action :move_to_root, except: [ :index, :show, :search ]
+  before_action :move_to_root, only: [ :edit ]
   
   
   def index
