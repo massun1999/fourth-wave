@@ -68,7 +68,7 @@
     <div class="show-btns">
 
     <% if user_signed_in? && current_user.id != @idea.user_id %>
-      <%= link_to '投げ銭', idea_orders_path(@idea), class: 'idea-order-btn'%>
+      <%= link_to '投げ銭', idea_orders_path(@idea), class: 'idea-order-btn', data: {"turbolinks"=>false} %>
     <% end %>
 
     

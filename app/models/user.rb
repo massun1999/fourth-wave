@@ -21,4 +21,8 @@ class User < ApplicationRecord
          has_one :profile, dependent: :destroy
          has_many :comments
          accepts_nested_attributes_for :profile
+
+         acts_as_followable 
+         acts_as_follower
+         
 end

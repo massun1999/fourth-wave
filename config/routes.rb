@@ -7,6 +7,20 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    #フォロー機能ルーティング
+    member do
+      put 'follow'
+      put 'unfollow'
+      get 'followers'
+      get 'follows'
+    end
+    #get 'users/follow_list/:user_id',to: 'users#follow_list'
+    #get 'users/follower_list/:user_id',to:'users#follower_list'
+    #//フォロー機能ルーティング
+  end
+
+  
+
   root to: "ideas#index"
 end

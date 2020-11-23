@@ -1,0 +1,11 @@
+<div class="followers-main">
+
+  <% @user.followers.each do |user| %>
+    <div class="folowers-list">
+      <%= link_to(user_path(user)) do %>
+        <%= user.nickname %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
