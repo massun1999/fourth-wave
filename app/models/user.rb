@@ -20,6 +20,8 @@ class User < ApplicationRecord
          has_many :orders
          has_one :profile, dependent: :destroy
          has_many :comments
+         has_many :entries, dependent: :destroy
+         has_many :messages, dependent: :destroy
          accepts_nested_attributes_for :profile
 
          acts_as_followable 
