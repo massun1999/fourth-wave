@@ -39,13 +39,15 @@
         <h4 class="comment-title">＜commnts＞</h4>
         <% if @comments %>
           <% @comments.each do |comment| %>
-            <p class='comment-content'>
-              <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>：</strong>
-              <%= comment.text %><p>
-              <% if (user_signed_in? && current_user.id == comment.user_id) || (user_signed_in? && comment.idea_id == @idea.id) %>
-                <%= link_to '削除する', idea_comment_path(comment.idea.id, comment.id), method: :delete, class:'comment-delete'%>
-              <% end %>
-            </p>
+              <div class='comment-wrap'>
+                <p class='comment-content'>
+                  <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>：</strong>
+                    <%= comment.text %>
+                    <% if (user_signed_in? && current_user.id == comment.user_id) || (user_signed_in? && comment.idea_id == @idea.id) %>
+                      <%= link_to '削除する', idea_comment_path(comment.idea.id, comment.id), method: :delete, class:'comment-delete'%>
+                    <% end %>
+                </p>
+              </div>
           <% end %>
         <% end %>
       </div>
