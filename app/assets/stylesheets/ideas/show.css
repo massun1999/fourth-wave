@@ -117,7 +117,6 @@
 }
 
 .container {
-  margin: 30px;
 }
 
 .comment-title {
@@ -146,6 +145,20 @@
 
 .comment-user {
   font-weight: bold;
+}
+
+.comment {
+  background-color: gray;
+}
+
+.comment-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.comment-delete {
+  font-size: 3px;
+  color: gray;
 }
 
 
