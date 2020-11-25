@@ -18,7 +18,6 @@ class Idea < ApplicationRecord
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
-    validates :format_id
   end
 
   def self.search(search)

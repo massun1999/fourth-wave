@@ -5,7 +5,7 @@
     <%= form_with model:@idea, url:ideas_path, local: true do |f| %>
 
     <div class="idea-new-logo">
-      <%= link_to image_tag("fourth-wave-logo.png", :size => '200x60'), "/" %>
+      <%= link_to "新規投稿", "/" ,class:'new-title'%>
     </div>
 
       <%= render 'shared/error_orders', model: @idea, class:'error' %>
@@ -21,8 +21,11 @@
         <div class="new-form-group">
          <%= f.label :image %><br />
          <%= f.file_field :image%>
+         <div class='image-preview-wrap' id="image-list"></div>
         </div>
       </div>
+
+
 
 
       <div class="new-form-group">
@@ -35,10 +38,6 @@
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
       </div>
 
-      <div class="new-form-group">
-        <%=f.label :format_id %><br />
-        <%= f.collection_select(:format_id, Format.all, :id, :name, {}, {class:"format-select"}) %>
-      </div>
 
 
       <%= f.submit 'POST' , class: "new-btn"%>
