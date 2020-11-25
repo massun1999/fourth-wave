@@ -7,8 +7,9 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :romms, only: [:create, :show]
+  resources :rooms, only: [:create, :show]
   resources :messages, only: [:create]
+  get 'messages/:id', to: 'messages#checked'
   resources :users, only: [:show, :edit, :update] do
     #フォロー機能ルーティング
     member do
