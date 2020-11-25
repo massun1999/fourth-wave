@@ -2,6 +2,9 @@
 
 <div class='profile-main'>
 
+
+  
+
   <h1 class='mypage-title'>Profile</h1>
 
 
@@ -9,6 +12,35 @@
     <p class="profile-name">
       <%= @user.nickname %>
     </p>
+
+    <%#DM機能%>
+    <% unless @user.id == current_user.id %>
+      <% if @is_room == true %>
+        <%= link_to 'チャットへ', room_path(@room_id), data: {"turbolinks"=>false} %>
+      <% else %>
+        <%= form_with(model: [@room, @entry],url: rooms_path, local:true) do |f| %>
+          <%= f.hidden_field :user_id, value: @user.id %>
+          <%= f.submit 'チャットを始める' %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%#//DM%>
+   <li id="user-<%= @user.id %>" class="collection-item">
+     <%= render 'users/follow', user: @user %>
+   </li>
+  </div>
+
+  <div class="follower-follow">
+    <div class="follower-wrap">
+      <%= link_to(followers_user_path) do %>
+        <p class="follower">フォロワー</p><%= @user.followers_count %>
+      <% end %>
+    </div>
+    <div class="follower-wrap">
+      <%= link_to(follows_user_path) do %>
+        <p class="follow">フォロー</p><%= @user.follow_count%>
+      <% end %>
+    </div>
   </div>
 
   <div class='profile-wrap-info'>

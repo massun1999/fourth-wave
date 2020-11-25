@@ -7,9 +7,15 @@
 
 .mypage-title {
   width: 50%;
-  font-size: 4vw;
+  font-size: 3vw;
   margin-bottom: 50px;
   border-bottom: 1px solid green;
+}
+
+.profile-wrap {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 30px;
 }
 
 .profile-wrap-info {
@@ -27,6 +33,30 @@
 .profile-name {
   font-weight: bold;
   font-size: 30px;
+}
+
+.collection-item {
+  width: 20%;
+  text-align: center;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.follow-btn {
+  width: 30%;
+  padding: 15px;
+  color: white;
+  background-color: limegreen;
+  border-radius: 150px 150px;
+}
+
+.follower-follow {
+  display: flex;
+}
+
+.follower-wrap {
+  text-align: center;
+  margin: 10px;
 }
 
 .profile-info {
