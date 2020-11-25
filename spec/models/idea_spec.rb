@@ -38,16 +38,6 @@ RSpec.describe Idea, type: :model do
         @idea.valid?
         expect(@idea.errors.full_messages).to include("Category must be other than 1")
       end
-      it "format_idが空のとき" do
-        @idea.format_id = ""
-        @idea.valid?
-        expect(@idea.errors.full_messages).to include("Format is not a number")
-      end
-      it "format_idが1のとき" do
-        @idea.format_id = 1
-        @idea.valid?
-        expect(@idea.errors.full_messages).to include("Format must be other than 1")
-      end
     end
   end
 end
