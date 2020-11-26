@@ -44,25 +44,28 @@
       <div class="comments">
         <h4 class="comment-title">＜commnts＞</h4>
         <% if @comments %>
-          <% @comments.each do |comment| %>
-              <div class='comment-wrap'>
-                <p class='comment-content'>
-                  <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>：</strong>
+          <div id='comment-wrap'>
+            <% @comments.each do |comment| %>
+                <div class='comment-wrap'>
+                  <p class='comment-content'>
+                    <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class:"comment-user" %>：</strong>
                     <%= comment.text %>
-                    <% if (user_signed_in? && current_user.id == comment.user_id) || (user_signed_in? && comment.idea_id == @idea.id) %>
+                    <% if (user_signed_in? && current_user.id == comment.user_id) || (user_signed_in? && current_user.id == @idea.user_id) %>
                       <%= link_to '削除する', idea_comment_path(comment.idea.id, comment.id), method: :delete, class:'comment-delete'%>
                     <% end %>
-                </p>
-              </div>
-          <% end %>
+                  </p>
+                </div>
+            <% end %>
+          </div>
         <% end %>
       </div>
+
 
       <%= render 'shared/error_orders', model: @comment, class:'error' %>
 
       <% if user_signed_in? %>
         <%= form_with(model: [@idea, @comment], local: true) do |form| %>
-          <%= form.text_area :text, placeholder: "コメントする", rows: "2" , class:'comment-form'%>
+          <%= form.text_area :text, placeholder: "コメントする", rows: "2" , class:'comment-form',id:'new-comment'%>
           <%= form.submit "SEND" , class:'comment-btn'%>
         <% end %>
       <% else %>

@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
+  #before_action :idea_find, only: :destroy
+
   def create
     if @comment = Comment.create(comment_params)
+      ActionCable.server.broadcast 'comment_channel', content: @comment
       redirect_to "/ideas/#{@comment.idea.id}"
     else
       render "/ideas/#{@comment.idea.id}"
@@ -8,12 +11,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @idea = Idea.find(params[:id])
-    comment = Comment.find_by(id: params[:id], idea_id: params[:idea_id])
-    if user_signed_in? && current_user.id == comment.user_id || comment.idea_id == @idea.id
+    comment = Comment.find(params[:id])
+    @idea_user = Idea.set_idea(comment)
+    if user_signed_in? && current_user.id == comment.user_id || current_user.id == @idea_user[0]
       if comment.destroy
         redirect_to "/ideas/#{comment.idea.id}"
       end
+    else
+      redirect_to "/ideas/#{comment.idea.id}"
     end
   end
 
