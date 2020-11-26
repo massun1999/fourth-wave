@@ -9,4 +9,8 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :idea
 
+  def self.tip(idea_id)
+    Order.where("idea_id = #{idea_id}").pluck(:price)
+  end
+
 end

@@ -18,6 +18,12 @@
     <div class="idea-show-title">
       <%= @idea.title %>
     </div>
+    
+    <%# if @tip.present? %>
+      <div class="idea-tip-total">
+        <p>投げ銭された合計金額</p><p class="tip-total">¥<%= @tip_total.to_s(:delimited) %></p>
+      </div>
+    <%# end %>
 
     <div class="idea-show-text">
       <%= simple_format(@idea.text) %>
