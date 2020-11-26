@@ -28,6 +28,11 @@ class Idea < ApplicationRecord
     end
   end
 
+  def self.set_idea(comment)
+    Idea.where("id = #{comment.idea_id}").pluck(:user_id)
+  end
+
+
 
 
 

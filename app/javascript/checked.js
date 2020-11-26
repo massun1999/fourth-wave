@@ -1,3 +1,5 @@
+//機能未実装のため未使用
+
 function checked() {
   const messages = document.querySelectorAll(".space")
   messages.forEach(function(message){

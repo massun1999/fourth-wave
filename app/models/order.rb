@@ -10,7 +10,12 @@ class Order < ApplicationRecord
   belongs_to :idea
 
   def self.tip(idea_id)
-    Order.where("idea_id = #{idea_id}").pluck(:price)
+    @tip = Order.where("idea_id = #{idea_id}").pluck(:price)
+    tip_total = 0
+    @tip.each do |t|
+       tip_total += t
+    end
+    return tip_total
   end
 
 end
