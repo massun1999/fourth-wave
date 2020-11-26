@@ -14,20 +14,25 @@
     </p>
 
     <%#DM機能%>
-    <% unless @user.id == current_user.id %>
-      <% if @is_room == true %>
-        <%= link_to 'チャットへ', room_path(@room_id), data: {"turbolinks"=>false} %>
-      <% else %>
-        <%= form_with(model: [@room, @entry],url: rooms_path, local:true) do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id %>
-          <%= f.submit 'チャットを始める' %>
+    <% if user_signed_in? %>
+      <% unless @user.id == current_user.id %>
+        <% if @is_room == true %>
+          <%= link_to 'チャットへ', room_path(@room_id), data: {"turbolinks"=>false} %>
+        <% else %>
+          <%= form_with(model: [@room, @entry],url: rooms_path, local:true) do |f| %>
+            <%= f.hidden_field :user_id, value: @user.id %>
+            <%= f.submit 'チャットを始める' %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
     <%#//DM%>
-   <li id="user-<%= @user.id %>" class="collection-item">
-     <%= render 'users/follow', user: @user %>
-   </li>
+
+   <% if user_signed_in? %>
+     <li id="user-<%= @user.id %>" class="collection-item">
+       <%= render 'users/follow', user: @user %>
+     </li>
+   <% end %>
   </div>
 
   <div class="follower-follow">
@@ -45,15 +50,22 @@
 
   <div class='profile-wrap-info'>
       <p class="profile-info">
-        <%= "駆け出しエンジニアです" %>
+      <% if @profile %>
+        <%= @profile.free %>
+      <% end %>
       </p>
   </div>
 
   
 
-
-  <% if user_signed_in? && current_user.id == @user.id%>
-    <%= link_to 'profileを編集する', edit_user_path(@user) %>
+  <% unless @profile %>
+    <% if user_signed_in? && current_user.id == @user.id  %>
+      <%= link_to 'profileを作成する',  new_user_profile_path(current_user.id) %>
+    <% end %>
+  <% else %>
+    <% if user_signed_in? && current_user.id == @user.id  %>
+      <%= link_to 'profileを編集する',  edit_user_profile_path(current_user.id) %>
+    <% end %>
   <% end %>
 
 

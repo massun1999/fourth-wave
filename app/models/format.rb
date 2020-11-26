@@ -1,5 +1,5 @@
 class Format < ActiveHash::Base
-  
+  #未使用
   self.data = [
     { id: 1, name: '__' },
     { id: 2, name: 'Recipe' },

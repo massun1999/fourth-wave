@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  #before_action :idea_find, only: :destroy
+  before_action :authenticate_user!, only: :new
 
   def create
     if @comment = Comment.create(comment_params)
