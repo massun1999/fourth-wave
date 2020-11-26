@@ -1,0 +1,19 @@
+<div class="idea-post">
+
+
+
+
+  <div class="idea-wrap">
+    <%= form_with model:@profile, url:user_profile_path(@profile), local: true do |f| %>
+
+      <div class="new-form-group">
+        <div class='profile-edit'>Profileを編集</div>
+        <%= f.text_area :free, placeholder: "Profile" , class: "idea-field-text" %>
+      </div>
+
+      <%= f.submit '編集' , class: "new-btn"%>
+    <% end %>
+
+    <%= link_to 'トップページ', root_path, class:"new-root" %>
+  </div>
+</div>

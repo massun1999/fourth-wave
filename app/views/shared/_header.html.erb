@@ -13,6 +13,7 @@
       <div class='nav-drawer'>
         <% if user_signed_in? %>
           <div id="nav-content"><%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname"%></div> 
+          <div id="vav-content"><%= link_to 'ユーザー管理', edit_user_path(current_user.id)%>
           <div id="nav-content"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></div> 
         <% else %>
           <div id="nav-content"><%= link_to 'ログイン', user_session_path, class: "login" %></div>

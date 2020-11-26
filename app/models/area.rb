@@ -1,4 +1,5 @@
 class Area < ActiveHash::Base
+  #未使用
   include ActiveHash::Associations
   has_many :profiles
 

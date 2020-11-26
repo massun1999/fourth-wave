@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:create]
   get 'messages/:id', to: 'messages#checked'
   resources :users, only: [:show, :edit, :update] do
+    resources :profiles, only: [ :new, :create, :edit, :update]
     #フォロー機能ルーティング
     member do
       put 'follow'
