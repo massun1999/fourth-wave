@@ -28,4 +28,7 @@ class Idea < ApplicationRecord
     end
   end
 
+
+
+
 end

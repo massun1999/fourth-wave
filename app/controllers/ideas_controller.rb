@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   before_action :authenticate_user!, only: :new
   before_action :set_idea, only: [ :edit, :update, :show, :destroy]
   before_action :move_to_root, only: [ :edit ]
-  
+  before_action :tip_total, only: :show
   
   def index
     @ideas = Idea.all.order("created_at DESC").includes(:user)
@@ -66,6 +66,15 @@ class IdeasController < ApplicationController
 
   def set_idea
     @idea = Idea.find(params[:id])
+  end
+  
+  def tip_total
+    idea_id = @idea.id
+    @tip = Order.tip(idea_id)
+    @tip_total = 0
+    @tip.each do |t|
+      @tip_total += t
+    end
   end
 
 end
