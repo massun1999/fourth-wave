@@ -2,7 +2,7 @@ if (document.URL.match(/new/) || document.URL.match(/edit/)) {
   document.addEventListener('DOMContentLoaded',function(){
     const ImageList = document.getElementById("image-list");
   
-    document.getElementById('idea_image').addEventListener('change', function(e){
+    document.getElementById('idea-image').addEventListener('change', function(e){
 
       const imageContent = document.querySelector("img");
       if (imageContent){
