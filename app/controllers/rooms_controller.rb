@@ -22,7 +22,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.permit(:user_id).merge(user_id: @user.id)
+    params.permit(:user_id).merge(user_id: current_user.id)
   end
 
   def entry_params
