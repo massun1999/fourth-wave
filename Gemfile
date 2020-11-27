@@ -72,3 +72,5 @@ gem 'image_processing', '~> 1.2'
 gem 'payjp'
 
 gem 'acts_as_follower', github: "tcocca/acts_as_follower"
+
+gem "aws-sdk-s3", require: false

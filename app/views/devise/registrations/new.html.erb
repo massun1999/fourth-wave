@@ -8,18 +8,18 @@
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 <%# //「モデル名」にはUserモデルであれば@userを渡しす。 %>
 
-<div class="form-wrap">
-  
-</div>
-
-<div class="form-wrap">
-<%= link_to image_tag("fourth-wave-logo.png", class:"fourth-icon"), "/" %>
-  <div class="form-header">
-    <h1 class="form-header-title">
-      Sign Up
-    </h1>
+  <div class="form-wrap">
+    
   </div>
-</div>
+  
+  <div class="form-wrap">
+  <%= link_to image_tag("fourth-wave-logo.png", class:"fourth-icon"), "/" %>
+    <div class="form-header">
+      <h1 class="form-header-title">
+        Sign Up
+      </h1>
+    </div>
+  </div>
 
   <%# エラーメッセージ%>
   <%# render 'shared/error_messages', model: f.object %>
@@ -94,7 +94,7 @@
                     start_year: 1930,
                     end_year: (Time.now.year - 5),
                     date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+                  "<p> 年 </p>", "<p> 月 </p>" + "<p> 日 </p>") %>
     </div>
   </div>
   <div class="form-group">
