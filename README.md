@@ -28,7 +28,7 @@
 ## profilesテーブル
 
 | Column | Type     | Option  |
-|-------------------|---------|
+|--------|----------|---------|
 | free   | text     |         |
 
 - belongs_to :user
