@@ -29,11 +29,6 @@
 
 | Column | Type     | Option  |
 |-------------------|---------|
-| job    | string   |         |
-| hobby  | string   |         |
-| sex_id | integer  |         |
-| skill  | string   |         |
-| area_id| integer  |         |
 | free   | text     |         |
 
 - belongs_to :user
@@ -46,8 +41,6 @@
 | title       | string      | null: false                    |
 | text        | string      | null: false                    |
 | category_id | integer     | null: false                    |
-| format_id   | integer     | null: false                    |
-| price       | integer     | null: false                    |
 | user        | references  | null: false,foreign_key: true  |
 
 ### Association
@@ -59,10 +52,11 @@
 
 ## ordersテーブル
 
-| Column | Type       | Option                         |
-|--------|------------|--------------------------------|
-| user   | references | null: false,foreign_key: true  |
-| idea   | references | null: false,foreign_key: true  |
+| Column      | Type       | Option                         |
+|-------------|------------|--------------------------------|
+| user   　　　| references | null: false,foreign_key: true  |
+| idea   　　　| references | null: false,foreign_key: true  |
+| price       | integer    | null: false                    |
 
 ### Association
 
