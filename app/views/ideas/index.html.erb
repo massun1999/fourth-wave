@@ -29,7 +29,7 @@
           <div class='list-content'>
             <div class='list-top-content'>
               <div class="idea-user"><%= link_to idea.user.nickname, user_path(idea.user_id) %></div>
-              <div class="idea-title"><%= idea.title %></div>
+              <div class="idea-title"><%= strip_tags(idea.title).truncate(10) %></div>
             </div>
             <%= link_to(idea_path(idea.id)) do %>
               <div class="idea-image-content">
@@ -42,9 +42,11 @@
         </li>
       <% end %>
     </ul>
-    <div class="new-link-wrap">
-      <%= link_to image_tag("new04.png", :size => '70x70'), new_idea_path,class:'new-idea-link' ,'data-turbolinks': false%>
-    </div>
+    <% if user_signed_in? %>
+      <div class="new-link-wrap">
+        <%= link_to image_tag("new04.png", :size => '70x70'), new_idea_path,class:'new-idea-link' ,'data-turbolinks': false%>
+      </div>
+    <% end %>
   
   </div>
   <%= render "shared/footer"%>

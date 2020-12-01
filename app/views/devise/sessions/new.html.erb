@@ -1,6 +1,6 @@
-<%# 「モデル名」にはUserモデルであれば@userを渡す。 %>
+
 <%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
-<%# //「モデル名」にはUserモデルであれば@userを渡しす。 %>
+
 
 <div class="form-wrap">
   
@@ -13,6 +13,19 @@
       Sign Up
     </h1>
   </div>
+</div>
+
+<div class='test-session-wrap'>
+  <h2 class='test-session-title'>
+  ログインにはこちらをご使用ください
+  </h2>
+  
+  <p class='test-session'>
+    ログイン用メールアドレス: kento@komono.jp
+  </p>
+  <p class='test-session'>
+    ログインパスワード: kento215
+  </p>
 </div>
 
   <%# エラーメッセージ%>
