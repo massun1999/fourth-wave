@@ -1,7 +1,27 @@
-# テーブル設計
+# コーヒー抽出レシピ投稿機能
+
+## 開発環境
+Ruby2.6.5/Ruby on Rails6.0.3.4/Mysql/git hub /Sequel Pro/AWS S3/heroku
+
+### 実装機能
+
+- ユーザー新機登録機能
+- ユーザーログイン機能
+- ユーザープロフィール機能
+- DM機能
+- 投稿機能
+- 投げ銭機能（PAYjp　API）
+- コメント機能
+- チャット機能
+- 投稿一覧表示機能
+- ユーザーマッチング機能
+- 投稿時画像プレビュー機能
+- S3への画像保存
 
 
-## usersテーブル
+## テーブル設計
+
+### usersテーブル
 
 | Column              | Type   | Option----- |
 |---------------------|--------|-------------|
@@ -25,7 +45,7 @@
 - has_many :room_user
 - has_many :rooms, through: room_user
 
-## profilesテーブル
+### profilesテーブル
 
 | Column | Type     | Option  |
 |--------|----------|---------|
@@ -34,7 +54,7 @@
 - belongs_to :user
 
 
-## ideasテーブル
+### ideasテーブル
 
 | Column      | Type        | Option                         |
 |-------------|-------------|--------------------------------|
@@ -50,7 +70,7 @@
 - has_many :comments
 
 
-## ordersテーブル
+### ordersテーブル
 
 | Column      | Type       | Option                         |
 |-------------|------------|--------------------------------|
@@ -63,7 +83,7 @@
 - belongs_to :idea
 - belongs_to :user
 
-## commentsテーブル
+### commentsテーブル
 
 | Column  | Type       | Option                         |
 |---------|------------|--------------------------------|
@@ -76,7 +96,7 @@
 - belongs_to :idea
 - belongs_to :user
 
-## roomsテーブル
+### roomsテーブル
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
@@ -88,7 +108,7 @@
 - has_many :users, through: room_users
 - has_many :messages
 
-## room_users テーブル
+### room_users テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -100,7 +120,7 @@
 - belongs_to :room
 - belongs_to :user
 
-## messages テーブル
+### messages テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
