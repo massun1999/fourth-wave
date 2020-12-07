@@ -59,7 +59,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 group :production do
-  gem 'rails_12factor'
+  gem 'unicorn', '5.4.1'
 end
 
 gem 'pry-rails'
@@ -74,3 +74,4 @@ gem 'payjp'
 gem 'acts_as_follower', github: "tcocca/acts_as_follower"
 
 gem "aws-sdk-s3", require: false
+
