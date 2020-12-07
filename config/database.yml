@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: fourth_wave_production
-  username: fourth_wave
-  password: <%= ENV['FOURTH_WAVE_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
